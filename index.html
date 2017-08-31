@@ -253,6 +253,146 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/31/HTTP状态码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/31/HTTP状态码/" itemprop="url">'HTTP状态码'</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-31T11:19:54+08:00">
+                2017-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 本文主要讲解HTTP常见的状态码。<br> HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。</p>
+<p>####状态码的类别<br>状态码主要有五类：</p>
+<p>#####1XX<br>   接受的请求正在处理</p>
+<p>#####2XX<br>   请求正常处理完毕</p>
+<p>#####3XX<br>   需要进行附加操作以完成请求</p>
+<p>#####4XX<br>   客户端错误，服务器无法处理请求</p>
+<p>#####5XX<br>   服务器处理请求错误</p>
+<p>####常见的状态码</p>
+<p>#####200<br>   表示客户端发来的请求在服务端被正常处理</p>
+<p>#####204<br>   服务端接收的请求已成功处理，但在返回的响应报文中不含实体的主体部分</p>
+<p>#####206<br>   客户端进行了范围请求，服务器成功执行了这部分的get请求。响应报文中包含由Content-Range指定范围的实体内容。</p>
+<p>#####301<br>永久性重定向。表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI。</p>
+<p>#####302<br>临时性重定向。表示请求的资源已被分配了新的URI，希望用户本次能使用新的URI访问。</p>
+<p>#####304<br>表示服务器请求的资源未被修改过。服务端允许请求访问资源，但未满足条件的情况。</p>
+<p>#####400<br>表示请求报文中存在语法错误。</p>
+<p>#####401<br>表示发送的请求需要有通过HTTP认证（BASIC认证、DIGEST认证）的认证信息。若之前进行过一次请求，则表示用户认证失败。若是初次接收到401响应，会弹出认证的对话窗口。</p>
+<p>#####403<br>表示请求访问的资源被服务器拒绝了。</p>
+<p>#####404<br>表示服务器上无法找到请求的资源。</p>
+<p>#####500<br>表示服务器端在执行请求时发生了错误。</p>
+<p>#####502<br>表示作为代理或者网关使用的服务器从请求响应链的下一条链路上收到了一条伪响应时，使用此状态码。</p>
+<p>#####503<br>表示服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/10/my-first-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -553,7 +693,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
