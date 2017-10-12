@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="先定义一个数组： 1var a = [&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;];">
+<meta name="description" content="先定义一个数组： 1var a = [&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;]; 数组检测 instanceof1console.log(a instanceof Array); // true   只有一个全局作用域下，使用这种方法。若网页中包含多个框架，容易出错。  Array.isArray()  1console.log(Array.isArra">
 <meta name="keywords" content="js,数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js数组基本方法总结">
 <meta property="og:url" content="http://yoursite.com/2017/05/21/js数组基本方法总结/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="先定义一个数组： 1var a = [&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;];">
+<meta property="og:description" content="先定义一个数组： 1var a = [&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;]; 数组检测 instanceof1console.log(a instanceof Array); // true   只有一个全局作用域下，使用这种方法。若网页中包含多个框架，容易出错。  Array.isArray()  1console.log(Array.isArra">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-31T08:14:29.058Z">
+<meta property="og:updated_time" content="2017-10-12T05:07:33.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js数组基本方法总结">
-<meta name="twitter:description" content="先定义一个数组： 1var a = [&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;];">
+<meta name="twitter:description" content="先定义一个数组： 1var a = [&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;]; 数组检测 instanceof1console.log(a instanceof Array); // true   只有一个全局作用域下，使用这种方法。若网页中包含多个框架，容易出错。  Array.isArray()  1console.log(Array.isArra">
 
 
 
@@ -360,7 +360,6 @@
       
         <p>先定义一个数组：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var a = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h3 id="数组检测"><a href="#数组检测" class="headerlink" title="数组检测"></a>数组检测</h3><ul>
 <li>instanceof<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a instanceof Array); // true</div></pre></td></tr></table></figure>
 </li>
@@ -376,24 +375,40 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(Object.prototype.toString.call(a)); // [object Array]</div></pre></td></tr></table></figure>
 <p>使用对象的toString函数判断，兼容性好。不能使用数组自身的toString，因为该函数已经被重写了。</p>
-<h3 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h3><ul>
-<li>toLocaleString</li>
-</ul>
+<h3 id="数组转换"><a href="#数组转换" class="headerlink" title="数组转换"></a>数组转换</h3><h4 id="数组转为字符串"><a href="#数组转为字符串" class="headerlink" title="数组转为字符串"></a>数组转为字符串</h4><ul>
+<li><p>toLocaleString</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.toLocaleString()); //a,b,c</div></pre></td></tr></table></figure>
-<ul>
-<li>toString</li>
-</ul>
+</li>
+<li><p>toString</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.toString()); //a,b,c</div></pre></td></tr></table></figure>
-<ul>
-<li>valueOf</li>
-</ul>
+</li>
+<li><p>valueOf</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.valueOf()); // 返回本身  [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</div></pre></td></tr></table></figure>
-<ul>
-<li>join</li>
-</ul>
+</li>
+<li><p>join</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.join(&apos;&amp;&apos;)); //a&amp;b&amp;c</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>由于前两个方法变成字符串默认中间加“，”，使用join方法，可以改变间隔符。</p>
-<h3 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h3><ul>
+<ul>
+<li>扩展运算符（ES6新增）<br>扩展运算符是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(...[1, 2, 3]);// 1 2 3</div><div class="line"></div><div class="line">console.log(1, ...[2, 3, 4], 5);// 1 2 3 4 5</div><div class="line"></div><div class="line">[...document.querySelectorAll(&apos;div&apos;)];// [&lt;div&gt;, &lt;div&gt;, &lt;div&gt;]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="其他数据结构转换为数组"><a href="#其他数据结构转换为数组" class="headerlink" title="其他数据结构转换为数组"></a>其他数据结构转换为数组</h4><ul>
+<li>扩展运算符（ES6新增）<br>扩展运算符支持将有遍历器接口的数据结构转换为数组。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// arguments对象</div><div class="line">function foo() &#123;</div><div class="line">  var args = [...arguments];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// NodeList对象</div><div class="line">[...document.querySelectorAll(&apos;div&apos;)]</div></pre></td></tr></table></figure>
+<ul>
+<li>Array.from()（ES6新增）<pre><code>- 将有遍历器接口的数据结构转换为数组
+- 将类数组转换为数组
+- 第一个参数为要转换为数组的数据结构
+- 第二个参数为map函数，对转换的数组进行处理
+</code></pre></li>
+<li>Array.prototype.slice<br>   借用Array的方法将类数组转换为数组。</li>
+<li>Array.of()（ES6新增）<br>   将一组值，转换为数组。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array.of(3, 11, 8) // [3,11,8]</div><div class="line">Array.of(3) // [3]</div><div class="line">Array.of(3).length // 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数组添加删除"><a href="#数组添加删除" class="headerlink" title="数组添加删除"></a>数组添加删除</h3><h4 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h4><ul>
 <li>push</li>
 </ul>
 <p>从末尾添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.push(&apos;d&apos;)); // 返回数组长度 4</div></pre></td></tr></table></figure></p>
@@ -401,7 +416,7 @@
 <li>pop<br>从末尾移除</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.pop()); // 返回移除的项 d</div></pre></td></tr></table></figure>
-<h3 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h3><ul>
+<h4 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h4><ul>
 <li>shift</li>
 </ul>
 <p>从头部移除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.shift()); // 返回移除的项 a</div></pre></td></tr></table></figure></p>
@@ -409,7 +424,7 @@
 <li>unshift<br>从头部添加</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.unshift(&apos;a&apos;)); // 返回数组长度</div></pre></td></tr></table></figure>
-<h3 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h3><ul>
+<h3 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h3><ul>
 <li>reverse</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.reverse()); // 反转 [&quot;c&quot;, &quot;b&quot;, &quot;a&quot;]</div></pre></td></tr></table></figure>
@@ -418,7 +433,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(a.sort()); // 排序，默认从小到大,但是排序前会调用toString</div></pre></td></tr></table></figure>
 <p>还可以传入函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var values = [0,10,5,1,15];</div><div class="line">function compare(value1,value2) &#123;</div><div class="line">    return value1 - value2;</div><div class="line">&#125;</div><div class="line">console.log(values.sort(compare));</div></pre></td></tr></table></figure></p>
-<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><ul>
+<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><ul>
 <li>concat<br><a href="http://blog.csdn.net/shjxa/article/details/77507639#t3" target="_blank" rel="external">concat深入解析</a></li>
 <li><p>slice<br><a href="http://blog.csdn.net/shjxa/article/details/77507639#t3" target="_blank" rel="external">slice深入解析</a></p>
 </li>
@@ -426,12 +441,39 @@
 </li>
 </ul>
 <p>始终返回被删除的项，若没有，返回空数组。<br>第一个参数表示起始位置；第二个参数表示要删除的个数（若为0，表示不删除）；第三个参数表示要添加的项（可选）；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var colors1 = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</div><div class="line">console.log(colors1.splice(0,1)); //[&quot;red&quot;]</div><div class="line">console.log(colors1); //[&quot;green&quot;, &quot;blue&quot;]</div><div class="line">console.log(colors1.splice(0,0,&quot;aaa&quot;)); //[]</div><div class="line">console.log(colors1); //[&quot;aaa&quot;, &quot;green&quot;, &quot;blue&quot;]</div><div class="line">console.log(colors1.splice(0,2,&quot;sss&quot;)); //[&quot;aaa&quot;, &quot;green&quot;]</div><div class="line">console.log(colors1); //[&quot;sss&quot;, &quot;blue&quot;]</div></pre></td></tr></table></figure></p>
-<h3 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h3><p>返回查找项的位置，没有的话返回-1。</p>
 <ul>
-<li>indexOf<br>从头查找</li>
-<li>lastIndexOf<br>从后往前查找</li>
+<li><p>copyWithin()（ES6新增）<br>在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组。</p>
+<pre><code>参数列表：
+- target（必需）：从该位置开始替换数据。
+- start（可选）：从该位置开始读取数据，默认为0。如果为负值，表示倒数。
+- end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数。
+</code></pre></li>
 </ul>
-<h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><p>传入的第一个参数为函数，都有三个参数，item，index，array</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4, 5].copyWithin(0, 3);// [4, 5, 3, 4, 5]</div><div class="line"></div><div class="line">// 将3号位复制到0号位</div><div class="line">[1, 2, 3, 4, 5].copyWithin(0, 3, 4);// [4, 2, 3, 4, 5]</div><div class="line"></div><div class="line">// -2相当于3号位，-1相当于4号位</div><div class="line">[1, 2, 3, 4, 5].copyWithin(0, -2, -1);// [4, 2, 3, 4, 5]</div></pre></td></tr></table></figure>
+<ul>
+<li>fill()（ES6新增）<br>使用给定值，填充一个数组。<br>第一个参数表示填充的值，第二个参数表示填充起始位置，第三个参数 表示填充的结束位置的前一个。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7);// [7, 7, 7]</div><div class="line"></div><div class="line">new Array(3).fill(7);// [7, 7, 7]</div><div class="line"></div><div class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7, 1, 2);// [&apos;a&apos;, 7, &apos;c&apos;]</div></pre></td></tr></table></figure>
+<h3 id="查找数组"><a href="#查找数组" class="headerlink" title="查找数组"></a>查找数组</h3><ul>
+<li><p>indexOf<br>从前往后查找，返回查找项的位置，没有的话返回-1。</p>
+</li>
+<li><p>lastIndexOf<br>从后往前查找，返回查找项的位置，没有的话返回-1。</p>
+</li>
+<li><p>findIndex()（ES6新增）<br> 返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[1, 5, 10, 15].findIndex(function(value, index, arr) &#123;</div><div class="line">  return value &gt; 9;</div><div class="line">&#125;) // 2</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>indexOf方法无法识别数组的NaN成员，但是findIndex方法可以借助Object.is方法做到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[NaN].indexOf(NaN)</div><div class="line">// -1</div><div class="line"></div><div class="line">[NaN].findIndex(y =&gt; Object.is(NaN, y))</div><div class="line">// 0</div></pre></td></tr></table></figure>
+<ul>
+<li>find()（ES6新增）<br>返回第一个符合条件的数组成员，如果所有成员都不符合条件，则返回undefined。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[1, 5, 10, 15].find(function(value, index, arr) &#123;</div><div class="line">  return value &gt; 9;</div><div class="line">&#125;) // 10</div></pre></td></tr></table></figure>
+<ul>
+<li>includes()（ES6新增）<br>返回一个布尔值，表示某个数组是否包含给定的值。<br>第一个参数表示查找的值，第二个参数表示搜索的起始位置，默认为0。如果第二个参数为负数，则表示倒数的位置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].includes(2)     // true</div><div class="line">[1, 2, 3].includes(4)     // false</div><div class="line">[1, 2, NaN].includes(NaN) // true</div><div class="line">[1, 2, 3].includes(3, 3);  // false</div><div class="line">[1, 2, 3].includes(3, -1); // true</div></pre></td></tr></table></figure>
+<h3 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h3><h4 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h4><p>传入的第一个参数为函数，都有三个参数，item，index，array</p>
 <ul>
 <li>every<br>查询每一项是否都符合要求</li>
 <li>filter<br>筛选出符合要求的项</li>
@@ -439,6 +481,15 @@
 <li>map<br>做某些操作，并且返回</li>
 <li>some<br>有一项符合要求就可以</li>
 </ul>
+<h4 id="ES6新增"><a href="#ES6新增" class="headerlink" title="ES6新增"></a>ES6新增</h4><p> 它们都返回一个遍历器对象，可以用for…of循环进行遍历，唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。</p>
+<ul>
+<li>entries()</li>
+<li>keys()</li>
+<li>values()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].keys()) &#123;</div><div class="line">  console.log(index);</div><div class="line">&#125;</div><div class="line">// 0</div><div class="line">// 1</div><div class="line"></div><div class="line">for (let elem of [&apos;a&apos;, &apos;b&apos;].values()) &#123;</div><div class="line">  console.log(elem);</div><div class="line">&#125;</div><div class="line">// &apos;a&apos;</div><div class="line">// &apos;b&apos;</div><div class="line"></div><div class="line">for (let [index, elem] of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</div><div class="line">  console.log(index, elem);</div><div class="line">&#125;</div><div class="line">// 0 &quot;a&quot;</div><div class="line">// 1 &quot;b&quot;</div></pre></td></tr></table></figure>
+<p>也可以手动调用next()方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let letter = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">let entries = letter.entries();</div><div class="line">console.log(entries.next().value); // [0, &apos;a&apos;]</div><div class="line">console.log(entries.next().value); // [1, &apos;b&apos;]</div><div class="line">console.log(entries.next().value); // [2, &apos;c&apos;]</div></pre></td></tr></table></figure>
 <h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><ul>
 <li>reduce<br>从前向后迭代<br>第一个参数为函数（参数为前一个值，当前值，索引，数组），从第二项开始迭代。每次迭代的prev为上一次迭代的结果。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var values = [1,2,3,4,5];</div><div class="line">var sum = values.reduce(function (prev, cur, index, array) &#123;</div><div class="line">     return prev * cur;</div><div class="line">&#125;);</div><div class="line">console.log(sum); // 120  1*2*3*4*5</div></pre></td></tr></table></figure>
 </li>
@@ -655,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组检测"><span class="nav-number">1.</span> <span class="nav-text">数组检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换方法"><span class="nav-number">2.</span> <span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈方法"><span class="nav-number">3.</span> <span class="nav-text">栈方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列方法"><span class="nav-number">4.</span> <span class="nav-text">队列方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重排序方法"><span class="nav-number">5.</span> <span class="nav-text">重排序方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法"><span class="nav-number">6.</span> <span class="nav-text">操作方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置方法"><span class="nav-number">7.</span> <span class="nav-text">位置方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">8.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并方法"><span class="nav-number">9.</span> <span class="nav-text">归并方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组检测"><span class="nav-number">1.</span> <span class="nav-text">数组检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组转换"><span class="nav-number">2.</span> <span class="nav-text">数组转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组转为字符串"><span class="nav-number">2.1.</span> <span class="nav-text">数组转为字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他数据结构转换为数组"><span class="nav-number">2.2.</span> <span class="nav-text">其他数据结构转换为数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组添加删除"><span class="nav-number">3.</span> <span class="nav-text">数组添加删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栈方法"><span class="nav-number">3.1.</span> <span class="nav-text">栈方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#队列方法"><span class="nav-number">3.2.</span> <span class="nav-text">队列方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组排序"><span class="nav-number">4.</span> <span class="nav-text">数组排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组操作"><span class="nav-number">5.</span> <span class="nav-text">数组操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找数组"><span class="nav-number">6.</span> <span class="nav-text">查找数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历数组"><span class="nav-number">7.</span> <span class="nav-text">遍历数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES5"><span class="nav-number">7.1.</span> <span class="nav-text">ES5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6新增"><span class="nav-number">7.2.</span> <span class="nav-text">ES6新增</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并方法"><span class="nav-number">8.</span> <span class="nav-text">归并方法</span></a></li></ol></div>
             
 
           </div>
